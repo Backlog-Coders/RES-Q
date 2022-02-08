@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <title>Request Blood</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<link rel = "icon" href="assets/pic/lg.png" type= "image/png">
+<style>
+.w3-btn {width:50px;}
+</style>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(77, 80, 87);
+  border-radius: 4px;
+  box-sizing:border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #000000;
+  padding: 20px;
+}
+</style>
+</head>
+
+<script>
+  var variable1 = document.getElementById("loc");
+  function getlocation() {
+    navigator.geolocation.getCurrentPosition(showLoc);
+  }
+  function showLoc(pos) {
+    document.getElementById("dct").style.color = 'white';
+    document.getElementById('dct').value = 
+      "Latitude: " +
+      pos.coords.latitude +
+      "  Longitude: " +
+      pos.coords.longitude;
+  }
+</script> 
+<body background="assets/pic/d.jpg">
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/pic/yguyub.png" alt="" width="80" height="90" class="d-inline-block align-text-top" style=" padding-top: 15px; padding-left: 5px;"> 
+      </a>
+    </div>
+  </nav>
+
+<div class="container" style="background: url('../be/assets/pic/gray_poly.jpg');">
+  
+  <p style="color: rgb(238, 255, 0);"> Click  on "Detect Location".</p>
+<button style="background-color:bisque;text-decoration: blanchedalmond; font-size:small ; border-radius: 20px; padding: 12px 20px;  display: inline-block"  onclick="getlocation()">
+  Detect Location
+</button>
+<p id="loc"></p>
+  <form action="resq.php" method="POST">
+    <input type="text" id="dct" name="dct" style="color: honeydew; width: 330px;" required onkeypress="return false;">
+
+    <p style="color: honeydew;">Name</p>
+    <input type="text" id="name" name="name" style="color: honeydew;">
+
+    <label for="contact" style="color: honeydew;">Contact no.</label> 
+    <input type="text" id="contact" name="contact" style="color: honeydew;" required> 
+
+    <p><label for="Bloodgrp" style="color: honeydew;">Blood Group</label>
+    <select id="Bloodgrp" name="Bloodgrp" style="color: honeydew; width: 120px;" required> 
+      <option value="O+" style="color: #f0fff0;">O+</option>
+      <option value="O-" style="color: honeydew;">O-</option>
+      <option value="A+" style="color: honeydew;">A+</option>
+      <option value="A-" style="color: honeydew;">A-</option>
+      <option value="B+" style="color: honeydew;">B+</option>
+      <option value="B-" style="color: honeydew;">B-</option>
+      <option value="AB+" style="color: honeydew;">AB+</option>
+      <option value="AB-" style="color: honeydew;">AB-</option>
+      <option value="Bombay (Oh) phenotype" style="color: honeydew;">"Bombay" (Oh) phenotype</option>
+      <option value="- D -/- D -" style="color: honeydew;">- D -/- D -</option>
+      <option value="In(a+b-)" style="color: honeydew;">In(a+b-)</option>
+      <option value="I-i-" style="color: honeydew;">I-i-</option>
+      <option value="CdE/CdE (ryry)" style="color: honeydew;">CdE/CdE (ryry)</option>
+      <option value="Mg" style="color: honeydew;">Mg</option>
+      
+    </select>
+    <label for="units" style="color: honeydew;"> &nbsp&nbsp Units</label>
+    <input type="text" name="units" id="units" style="color: honeydew; width: 120px;" required>
+  </p>
+
+    <p style="color: honeydew;">Special Mention(Any disease/Co-morbidity)</p>
+    <input type="text" name="other" style="color: honeydew;">
+
+    <p style="color: honeydew;">Pincode</p>
+    <input type="text" name="pincode" style="color: honeydew;">
+     <br><br>
+    <label for="Address" style="color: honeydew;">Address</label>
+    <textarea id="Address" name="Address" style="height:200px; color: honeydew;"></textarea>
+
+   <input type="submit" value="Submit">
+  </form>  
+</div>
+</body>
+</html>

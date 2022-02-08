@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin</title>
+	<link rel = "icon" href="assets/pic/lg.png" type= "image/png">
+
+<style>
+	
+	/*assign full width inputs*/
+	input[type=text],
+	input[type=password] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	
+	/*set a style for the buttons*/
+	button {
+		background-color: rgb(148, 11, 11);
+		color: white;
+		Position: center;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	
+	/* set a hover effect for the button*/
+	button:hover {
+		opacity: 0.8;
+	}
+	
+	/*set extra style for the cancel button*/
+	.cancelbtn {
+		width: auto;
+		padding: 10px 18px;
+		background-color: #f44336;
+	}
+	
+	/*centre the display image inside the container*/
+	.imgcontainer {
+		text-align: center;
+		margin: 24px 0 12px 0;
+		position: relative;
+	}
+	
+	/*set image properties*/
+	img.avatar {
+		width: 40%;
+		border-radius: 50%;
+	}
+	
+	/*set padding to the container*/
+	.container {
+		padding: 16px;
+	}
+	
+	/*set the forgot password text*/
+	span.psw {
+		float: right;
+		padding-top: 16px;
+	}
+	
+	/*set the Modal background*/
+	.modal {
+		display: none;
+		position: center;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgb(0, 0, 0);
+		background-color: rgba(0, 0, 0, 0.4);
+		padding-top: 60px;
+	}
+	
+	/*style the model content box*/
+	.modal-content {
+		background-color: #fefefe;
+		margin: 5% auto 15% auto;
+		border: 1px solid #888;
+		width: 80%;
+	}
+	
+	/*style the close button*/
+	.close {
+		position: absolute;
+		right: 25px;
+		top: 0;
+		color: rgb(0, 0, 0);
+		font-size: 35px;
+		font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+		color: red;
+		cursor: pointer;
+	}
+	
+	/* add zoom animation*/
+	.animate {
+		-webkit-animation: animatezoom 0.6s;
+		animation: animatezoom 0.6s
+	}
+	
+	@-webkit-keyframes animatezoom {
+		from {
+			-webkit-transform: scale(0)
+		}
+		to {
+			-webkit-transform: scale(1)
+		}
+	}
+	
+	@keyframes animatezoom {
+		from {
+			transform: scale(0)
+		}
+		to {
+			transform: scale(1)
+		}
+	}
+	
+	@media screen and (max-width: 30px) {
+		span.psw {
+			display: block;
+			float: none;
+		}
+		.cancelbtn {
+			width: 5%;
+		}
+	}
+
+	.GFG {
+            background-color: #800c0c;
+            border: 2px solid #800c0c;
+            color: rgb(255, 255, 255);
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+            text-decoration:none;
+	}
+</style>
+</head>
+
+<body background="assets/pic/d.jpg" style="text-align: center;">
+
+	<nav class="navbar navbar-light bg-light">
+	  <div class="container-fluid">
+		<a class="navbar-brand" href="#">
+		  <img src="assets/pic/yguyub.png" alt="" width="80" height="80" class="d-inline-block align-text-top"> 
+		</a>
+	  </div>
+	</nav>
+
+	<h2 style="color: thistle;" >Admin Login</h2>
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+	<div id="id01" class="modal">
+
+		<form class="modal-content animate" action="/action_page.php">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+			</div>
+
+			<div class="container" >
+				<label><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" required>
+
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+                
+				<a href="Welcome.html"> <button type="button"> Login </button> </a>   
+				 
+				
+				
+				<input type="checkbox" checked="checked"> Remember me
+				
+			</div>
+
+
+
+			<div class="container" style="background-color:#f1f1f1">
+				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+				<span class="psw">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
+	
+
+	<script>
+		var modal = document.getElementById('id01');
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+<body>
+	<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
+
+	<div id="id02" class="modal">
+		<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+		<form class="modal-content animate" action="/action_page.php">
+			<div class="container">
+				<label><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<label><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+				<input type="checkbox"> Remember me
+
+				<div class="clearfix">
+					<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+					<button type="submit" class="signupbtn">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script>
+		var modal = document.getElementById('id02');
+
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+
+</html>
